@@ -6,7 +6,7 @@
 require 'spec_helper'
 require 'tempfile'
 
-describe Puppet::Type.type(:mongodb_replset).provider(:mongo) do
+describe Puppet::Type.type(:mongodb_replset).provider(:mongodb) do
 
   valid_members = ['mongo1:27017', 'mongo2:27017', 'mongo3:27017']
 
@@ -14,7 +14,7 @@ describe Puppet::Type.type(:mongodb_replset).provider(:mongo) do
     { :ensure        => :present,
       :name          => 'rs_test',
       :members       => valid_members,
-      :provider      => :mongo
+      :provider      => :mongodb
     }
   )}
 
