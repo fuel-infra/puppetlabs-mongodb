@@ -86,8 +86,9 @@ describe 'mongodb::server::config', :type => :class do
 
     context 'true and without quotafiles' do
       let(:pre_condition) { ["class mongodb::server { $config = '/etc/mongod.conf' $dbpath = '/var/lib/mongo' $ensure = present $quota = true }", "include mongodb::server"]}
+
       it {
-        should contain_file('/etc/mongod.conf').with_content(/^quota = true/)
+        should contain_file('/etc/mongod.conf').with_content(/quota = true/)
       }
     end
 
